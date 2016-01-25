@@ -5,11 +5,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="mediaquery-reporter.css">
     <style>
-        html {
-            height: 5000px;
-        }
 
-        .outer {
+        #outer {
             height: 300px;
             width: 300px;
             overflow-x: hidden;
@@ -19,10 +16,10 @@
         }
     </style>
 </head>
-<body>
+<body value="">
 
-    <div class="outer">
-        <div class="inner">
+    <div id="outer">
+        <div id="inner">
            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis
            totam cupiditate pariatur, error aliquam praesentium accusamus esse
            eos explicabo illo quaerat itaque earum mollitia, sunt beatae
@@ -84,5 +81,14 @@
         </div>
     </div>
 
+    <script>
+
+        var body = document.body;
+
+        outer.addEventListener('scroll', function(e) {
+            var value = body.getAttribute('value');
+            body.setAttribute('value', `${(+(new Date)).toString().slice(-8)} scroll ${value}`);
+        });
+    </script>
 </body>
 </html>
